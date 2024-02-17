@@ -13,41 +13,45 @@ Purpose: This program asks user what they would like to buy from the coffee shop
 # Static variables -------
 COFFEEPRICE     = 5.00
 MUFFINPRICE     = 4.00
+LATTEPRICE      = 7.00
+COOKIEPRICE     = 2.50
 TAXPERCENT      = 0.06
 # ------------------------
 
-print("***************************************")             # Print welcome message and bumper
+print("***************************************")             # Print bumper and welcome message
 print("Welcome to Nick's Coffee & Muffin shop!")
+
 coffeeNumber = input("How many coffees would you like?: ")   # Prompt user for how many coffees they want
 muffinNumber = input("How many muffins would you like?: ")   # Prompt user for how many muffins they want
+latteNumber  = input("How many lattes would you like?: ")    # Prompt user for how many lattes they want
+cookieNumber = input("How many cookies would you like?: ")   # Prompt user for how many cookies they want
+
 print("***************************************")             # Print outer bumper
-# Convert totals from strings to integers
-coffeeNumber = int(coffeeNumber)
+
+coffeeNumber = int(coffeeNumber)                             # Convert totals from strings to integers
+latteNumber  = int(latteNumber)
+cookieNumber = int(cookieNumber)
 muffinNumber = int(muffinNumber)
 
-# Calculate total cost of both the coffee and the muffins, and total cost of both
-coffeeTotal  = coffeeNumber * COFFEEPRICE
+coffeeTotal  = coffeeNumber * COFFEEPRICE                    # Calculate total cost of the coffees, lattes, cookies and muffins, and total cost of all
+latteTotal   = latteNumber * LATTEPRICE
 muffinTotal  = muffinNumber * MUFFINPRICE
-totalCost    = coffeeTotal + muffinTotal
+cookieTotal  = cookieNumber * COOKIEPRICE
+totalCost    = coffeeTotal + muffinTotal + latteTotal + cookieTotal
 
-# Calculate taxes (6% of total)
-taxTotal     = totalCost * TAXPERCENT
+taxTotal     = totalCost * TAXPERCENT                        # Calculate taxes (6% of total)
+grandTotal   = totalCost + taxTotal                          # Calculate grand total
 
-# Calculate grand total
-grandTotal   = totalCost + taxTotal
+                            # Begin receipt printing
 
-# Print upper bumper
-print("\n***************************************")
+print("\n***************************************")           # Print upper bumper
 
-# Print receipt containing total number of each item bought,
-# total cost of each type of item bought, the calculated tax,
-# and the grand total including tax. 
-print("Nick's coffee shop receipt")
+print("Nick's coffee shop receipt")                          # Print receipt containing total number of each item bought,
+                                                             # total cost of each type of item bought, the calculated tax,
+                                                             # and the grand total including tax.
 
-# If the user only bought 1 coffee or muffin, format text correctly
-# to reflect that. Otherwise print standard message
-if coffeeNumber == 1:
-    print("1 Coffee at $5 each: $", coffeeTotal)
+if coffeeNumber == 1:                                        # If the user only bought 1 coffee, latte, cookie or muffin, format text correctly
+    print("1 Coffee at $5 each: $", coffeeTotal)             # to reflect that. Otherwise print standard message
 else:
     print(coffeeNumber, "Coffees at $5 each: $", coffeeTotal)
 
@@ -56,9 +60,24 @@ if muffinNumber == 1:
 else:
     print(muffinNumber, "Muffins at $4 each: $", muffinTotal)
 
-print("6% tax: $", taxTotal) # Display tax total
-print("---------") # Print bumper for style
+if latteNumber == 1:
+    print("1 Latte at $7 each: $", latteTotal)
+else:
+    print(latteNumber, "Lattes at $7 each: $", latteTotal)
 
-print("Total: $", grandTotal) # Print grand total (subtotal + calculated tax)
+if cookieNumber == 1:
+    print("1 Cookie at $2.50 each: $", cookieTotal)
+else:
+    print(cookieNumber, "Cookies at $2.50 each: $", cookieTotal)
 
-print("\n***************************************") # Print lower bumper
+print("6% tax: $", taxTotal)                                 # Display tax total
+print("---------")                                           # Print bumper for style
+
+print("Total: $", grandTotal)                                # Print grand total (subtotal + calculated tax)
+
+print("\n***************************************")           # Print lower bumper
+
+print("Thank you for shopping at Nick's coffee and muffin shop! \
+    \nHave a great day!")
+
+                            # End receipt printing
