@@ -28,6 +28,8 @@ cookieNumber = input("How many cookies would you like?: ")   # Prompt user for h
 
 print("***************************************")             # Print outer bumper
 
+# Begin conversions and price calculations -----------------------------------
+
 coffeeNumber = int(coffeeNumber)                             # Convert totals from strings to integers
 latteNumber  = int(latteNumber)
 cookieNumber = int(cookieNumber)
@@ -42,7 +44,9 @@ totalCost    = coffeeTotal + muffinTotal + latteTotal + cookieTotal
 taxTotal     = totalCost * TAXPERCENT                        # Calculate taxes (6% of total)
 grandTotal   = totalCost + taxTotal                          # Calculate grand total
 
-                            # Begin receipt printing
+# End conversions and price calculations --------------------------------------
+
+# Begin receipt printing ------------------------------------------------------
 
 print("\n***************************************")           # Print upper bumper
 
@@ -80,4 +84,4 @@ print("\n***************************************")           # Print lower bumpe
 print("Thank you for shopping at Nick's coffee and muffin shop! \
     \nHave a great day!")
 
-                            # End receipt printing
+# End receipt printing ---------------------------------------------------------
