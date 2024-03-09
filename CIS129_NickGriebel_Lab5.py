@@ -1,3 +1,12 @@
+# Written by Nick Griebel
+# CIS 129
+# 03/08/2024
+#
+# This program retrieves total number of bottles for each day of the week (7 days), 
+# and calculates the total payout received for all bottles collected during those 7 days. 
+# Once calculated, total bottle and total payout information is displayed to the user, and 
+# the user may continue entering data until they decide to stop. 
+
 # Initial definition of variables
 totalBottles = 0
 counter = 1
